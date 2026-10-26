@@ -44,6 +44,20 @@ chrome.commands.onCommand.addListener(async (command) => {
   if (command === 'pick-target') invoke(tab.id, 'pick');
 });
 
+// ------------------------------------------------------- viewport screenshot
+// The raid engine asks for one screenshot per raid so it can cut elements out of it
+// (shatter them, or drag them to the ship). Works under activeTab; if it fails, the content
+// script falls back to painted stand-ins. The image never leaves the browser.
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+  if (msg && msg.type === 'capture' && sender.tab) {
+    chrome.tabs.captureVisibleTab(sender.tab.windowId, { format: 'jpeg', quality: 90 })
+      .then((dataUrl) => sendResponse({ dataUrl }))
+      .catch(() => sendResponse({ dataUrl: null }));
+    return true; // async response
+  }
+  return false;
+});
+
 // ------------------------------------------------------------ context menus
 function createMenus() {
   chrome.contextMenus.removeAll(() => {

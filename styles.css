@@ -7,11 +7,10 @@
   transition: filter 0.3s ease-out !important;
 }
 
+/* "gone" is instant: the overlay is already showing shards or a dragged copy of the element. */
 [data-pp-state="gone"] {
   opacity: 0 !important;
   visibility: hidden !important;
-  filter: brightness(2) !important;
-  transition: opacity 0.28s ease-out, visibility 0s linear 0.28s, filter 0.28s ease-out !important;
 }
 
 [data-pp-state="restoring"] {
