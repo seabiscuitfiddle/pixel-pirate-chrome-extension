@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pixel Pirates settings</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; background:#0f2540; color:#f2efe6; font:14px/1.5 "Courier New", monospace; }
+  header { background:#12304f; padding:18px 24px; border-bottom:4px solid #d4a017; display:flex; align-items:center; gap:14px; }
+  header img { width:48px; height:48px; image-rendering:pixelated; }
+  h1 { font-size:22px; margin:0; color:#f1c40f; letter-spacing:2px; }
+  main { max-width:640px; margin:0 auto; padding:24px; display:grid; gap:22px; }
+  section { background:#12304f; border:2px solid #2c4a6e; padding:16px 18px; display:grid; gap:12px; }
+  h2 { margin:0; font-size:15px; color:#f1c40f; text-transform:uppercase; letter-spacing:1px; }
+  label.row { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  select, input[type=number], textarea { background:#0a1a2e; color:#f2efe6; border:2px solid #2c4a6e; padding:5px 8px; font:inherit; }
+  input[type=number] { width:80px; }
+  textarea { width:100%; box-sizing:border-box; min-height:70px; resize:vertical; }
+  input[type=range] { width:180px; accent-color:#d4a017; }
+  input[type=checkbox] { accent-color:#d4a017; width:18px; height:18px; }
+  button { background:#c0392b; color:#fff; border:0; border-bottom:4px solid #7b241c; padding:8px 12px; font:bold 13px "Courier New", monospace; cursor:pointer; }
+  button:active { transform:translateY(2px); border-bottom-width:2px; }
+  small { color:#9db4cc; font-size:12px; }
+  #msg { color:#f39c12; min-height:18px; }
+  fieldset { border:0; padding:0; margin:0; display:grid; gap:12px; }
+  fieldset:disabled { opacity:.45; }
+  code { color:#f1c40f; }
+</style>
+</head>
+<body>
+<header><img src="icons/icon48.png" alt=""><h1>PIXEL PIRATES</h1></header>
+<main>
+  <section>
+    <h2>How to summon them</h2>
+    <small>
+      Click the toolbar icon (click again to stop) &bull; <code>Alt+Shift+P</code> raid the page &bull;
+      <code>Alt+Shift+O</code> pick one element to plunder &bull; right-click anywhere for the same options.
+    </small>
+    <div><button id="shortcuts">Change shortcuts</button></div>
+  </section>
+
+  <section>
+    <h2>Raid behaviour</h2>
+    <label class="row"><span>Restore the page when I</span>
+      <select id="restoreOn">
+        <option value="move">move the mouse, scroll, click or type</option>
+        <option value="click">only click or press a key</option>
+      </select>
+    </label>
+    <small>"Only click or press a key" is handy for screen recordings and demos, where the mouse needs to roam.</small>
+    <label class="row"><span>Crew mood</span><input type="range" id="speed" min="1" max="5" step="1"></label>
+    <small>1 = lazy deckhands, 5 = full mutiny.</small>
+  </section>
+
+  <section>
+    <h2>Surprise mode (optional)</h2>
+    <label class="row"><span>Also raid automatically when I'm idle</span><input type="checkbox" id="idleEnabled"></label>
+    <small>Needs permission to run on all websites. Leave this off and the extension only touches a page when you invoke it.</small>
+    <fieldset id="idleOpts">
+      <label class="row"><span>Idle seconds</span><input type="number" id="idleSeconds" min="5" max="3600" step="5"></label>
+      <label class="row"><span>Skip if I prefer reduced motion</span><input type="checkbox" id="reduced"></label>
+      <div>
+        <div>Never auto-raid hostnames containing (one per line)</div>
+        <textarea id="hosts" placeholder="example.com"></textarea>
+        <small>Banks, webmail, Google Docs, .gov and similar sites are always skipped. Manual raids work anywhere.</small>
+      </div>
+    </fieldset>
+  </section>
+  <div id="msg"></div>
+</main>
+<script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* Injected as a content-script stylesheet (not a <style> tag) so page CSP can't block it.
+   The extension only ever sets/removes the data-pp-state attribute; it never edits
+   inline styles, so restoring a page is just removing the attribute. */
+
+[data-pp-state="scorched"] {
+  filter: brightness(0.45) sepia(0.8) contrast(1.1) !important;
+  transition: filter 0.3s ease-out !important;
+}
+
+[data-pp-state="gone"] {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  filter: brightness(2) !important;
+  transition: opacity 0.28s ease-out, visibility 0s linear 0.28s, filter 0.28s ease-out !important;
+}
+
+[data-pp-state="restoring"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: opacity 0.35s ease-in !important;
+}
+
+/* Crosshair while picking a target (attribute set/removed by the extension). */
+html[data-pp-picking], html[data-pp-picking] * {
+  cursor: crosshair !important;
+}

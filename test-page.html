@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pixel Pirates test page</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 960px; margin: 0 auto; padding: 24px; background:#f6f7f9; color:#222; }
+  nav { display:flex; gap:12px; margin-bottom:24px; }
+  nav a, button { padding:8px 14px; background:#1a73e8; color:#fff; border-radius:6px; text-decoration:none; border:0; font-size:14px; }
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .card { background:#fff; border-radius:8px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,.15); }
+  .card img { width:100%; height:120px; object-fit:cover; border-radius:6px; background:linear-gradient(135deg,#6a11cb,#2575fc); display:block; }
+  .hero { height:280px; border-radius:10px; background:linear-gradient(135deg,#f093fb,#f5576c); margin:24px 0; }
+  svg { width:48px; height:48px; }
+</style>
+</head>
+<body>
+  <nav><a href="#">Home</a><a href="#">Docs</a><a href="#">Pricing</a><a href="#">Blog</a><button>Sign up</button></nav>
+  <h1>Pixel Pirates test page</h1>
+  <p>Serve this over http (e.g. <code>python3 -m http.server</code>) so the extension can inject. Then click the toolbar icon, press Alt+Shift+P, or press Alt+Shift+O and click one of the cards.</p>
+  <div class="hero"></div>
+  <div class="grid">
+    <div class="card"><img alt=""><h3>Treasure map</h3><p>X marks the spot, but only if the spot is not already plundered.</p><button>Buy</button></div>
+    <div class="card"><img alt=""><h3>Rum</h3><p>Why is the rum gone? Because pirates.</p><button>Buy</button></div>
+    <div class="card"><img alt=""><h3>Parrot</h3><p>Pieces of eight! Pieces of eight!</p><button>Buy</button></div>
+    <div class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#34a853"/></svg><h3>Cannons</h3><p>Loud and effective.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" fill="#ea4335"/></svg><h3>Flags</h3><p>Black, usually.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24"><polygon points="12,2 22,22 2,22" fill="#fbbc04"/></svg><h3>Gold</h3><p>Shiny things.</p></div>
+  </div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <ul><li>Link one</li><li>Link two</li><li>Link three</li></ul>
+  <footer><small>&copy; 2026 Test Page Inc.</small></footer>
+</body>
+</html>
