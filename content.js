@@ -46,8 +46,8 @@
 
   const STATE_ATTR = 'data-pp-state';
   const PICK_ATTR = 'data-pp-picking';
-  const SHIP_W = 30, SHIP_H = 24, SHIP_PX = 3;
-  const PIRATE_W = 8, PIRATE_H = 12, PIRATE_PX = 2;
+  const SHIP_W = 30, SHIP_H = 24, SHIP_PX = 7;
+  const PIRATE_W = 16, PIRATE_H = 24, PIRATE_PX = 3;
   const MAX_PARTICLES = 600;
   const MAX_SHARDS = 700;
   const HOST_CSS =
@@ -289,21 +289,41 @@
       R('#1a1a1a', 8, 19, 2, 2); R('#1a1a1a', 14, 19, 2, 2); R('#1a1a1a', 20, 19, 2, 2); // cannon ports
     });
 
-    const pal = { k: '#1a1a1a', w: '#f2efe6', s: '#f0c08a', r: '#c0392b', n: '#2c3e8f', b: '#5a3418', y: '#f1c40f' };
+    const pal = { k: '#1a1a1a', w: '#f2efe6', s: '#f0c08a', S: '#d49a62', r: '#c0392b', R: '#8e2a20', n: '#2c3e8f', b: '#5a3418', y: '#f1c40f', d: '#3b2314' };
     const top = [
-      '..kkkk..',
-      '.kkwwkk.',
-      'kkkkkkkk',
-      '..ssss..',
-      '..ksss..',
-      '..ssss..',
-      '.rwrwrw.',
-      'srrrrrrs',
-      '.rwrwrw.',
-      '..nnnn..',
+      '....kkkkkkkk....',
+      '..kkkkkkkkkkkk..',
+      '.kkkkkwwwwkkkkk.',
+      'kkkkkkwkkwkkkkkk',
+      '.kkkkkkwwkkkkkk.',
+      '..kyyyyyyyyyyk..',
+      '...kssssssssk...',
+      '...kkkkkssksk...',
+      '...ksssSsssSk...',
+      '...kdssrrssdk...',
+      '...kddddddddk...',
+      '....kddddddk....',
+      '..kkrrkddkrrkk..',
+      '.krrrwwrrwwrrrk.',
+      'ksrRrwwrrwwrRrsk',
+      'kskrrrrrrrrrrksk',
+      '..krrwwrrwwrrk..',
+      '..kbbbbyybbbbk..',
+      '..knnnnnnnnnnk..',
+      '..knnnnkknnnnk..'
     ];
-    const pirateA = fromRows([...top, '..n..n..', '..b..b..'], pal);
-    const pirateB = fromRows([...top, '.n....n.', '.b....b.'], pal);
+    const pirateA = fromRows([...top,
+      '..knnnk..knnnk..',
+      '..knnnk..knnnk..',
+      '..kbbbk..kbbbk..',
+      '.kkbbbk..kbbbkk.'
+    ], pal);
+    const pirateB = fromRows([...top,
+      '.knnnk....knnnk.',
+      '.knnnk....knnnk.',
+      '.kbbbk....kbbbk.',
+      'kkbbbk....kbbbkk'
+    ], pal);
     S = { ship, pirateA, pirateB };
     return S;
   }
