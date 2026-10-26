@@ -12,8 +12,7 @@
 | Restore | `endRaid()` | Fades back, then removes the attribute. Also fires on tab hide, `pagehide`, toggle-off, extension reload. |
 | Settings | `options.html/js` | Crew mood, restore mode, optional idle mode (+ hostname blocklist). |
 
-Activity listeners are attached only while a raid is running (or Surprise mode is on); an idle,
-invoked-only install does nothing on any page.
+Activity listeners are attached only while a raid is running (or Surprise mode is on); an idle, invoked-only install does nothing on any page.
 
 ## Known limitations
 - Top frame only; iframes are hidden whole but not entered.
